@@ -1,7 +1,9 @@
 // Set Global Variables 
 
 let values = []; 
-let w = 50;
+let w =  document.getElementById('rangeValue').innerHTML;
+
+w = 20;
 
 
 
@@ -19,10 +21,10 @@ function setup() {
 
 
     // Insert Random values in array 
-    values = new Array(floor(width/w)); 
+    values = new Array(floor(width/w+1)); 
 
     for(let i = 0; i < values.length; i++) { 
-        values[i] = float(random(height+5)); 
+        values[i] = float(random(height)+20); 
     states[i] = 2
     if(states[i] == 2){
         fill(255, 173, 153);
@@ -126,19 +128,24 @@ function draw() {
         rect(i*w, height - values[i], w, values[i]); 
     } 
 }
+let speed =  document.getElementById('rangeSpeed').innerHTML;
+speed = 100;
 
 // Definition of swap function 
 async function swap(arr, a, b) { 
-    
-    await sleep(100); 
+   
+   
+   
+    await sleep(speed); 
     let t = arr[a]; 
     arr[a] = arr[b]; 
     arr[b] = t; 
 } 
 
 // Definition of sleep function 
-function sleep(ms) { 
-    return new Promise(resolve => setTimeout(resolve, ms)); 
+function sleep(speed) { 
+
+    return new Promise(resolve => setTimeout(resolve, speed)); 
 } 
 
 
@@ -168,3 +175,17 @@ function search(ele) {
 
 }
 }
+
+function rangeSlide(value){
+
+
+ w = value;
+}
+
+
+function rangeSpeed(fast){
+    
+
+    speed = fast;
+   }
+   
