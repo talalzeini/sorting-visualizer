@@ -1,9 +1,9 @@
 // Set Global Variables 
 
 let values = []; 
-let w =  document.getElementById('rangeValue').innerHTML;
+// let w =  document.getElementById('rangeValue').innerHTML;
 
-w = 20;
+let w = 30;
 
 
 
@@ -39,7 +39,7 @@ function setup() {
 } 
 
 // Definition of bubble sort 
-async function selectionSort(arr, start, end) { 
+async function selectionSort(arr) { 
 
     var small;
     var i;
@@ -74,28 +74,30 @@ async function selectionSort(arr, start, end) {
     return arr; 
 
 } 
-async function bubbleSort(arr, start, end) { 
-    if(start >= end) { 
-        return; 
-    } 
-    
-    for(var i = 0; i < end; i++) { 
-        for(var j = 0; j < end-i; j++) { 
-            if(arr[j] >= arr[j+1]) { 
-               
-   
-                // Call to swap function 
-                await swap(arr, j, j+1); 
-              
-            } 
+async function bubbleSort(arr) { 
 
-        } 
-        states[i] = 0;
-    } 
-    document.getElementById('resetButton').disabled = false;
-    return arr; 
+    var k;
+    var i;
+
+    for(k = 1; k < arr.length; k++){
+        for(i=0; i < arr.length-k-1; i++)
+        {
+            if(arr[i] > arr[i+1]){
+                states[i] = 0;
+                states[i+1] = 0
+                await swap(arr, i, i+1); 
+                states[i] = 2;
+                states[i+1] = 2;
+        }
+    }
+            states[i] = 0;     
 } 
+document.getElementById('resetButton').disabled = false;
+return arr; 
+}
+
    
+
 
 // Definition of draw function 
 function draw() { 
@@ -136,7 +138,7 @@ async function swap(arr, a, b) {
    
    
    
-    await sleep(speed); 
+    await sleep(200); 
     let t = arr[a]; 
     arr[a] = arr[b]; 
     arr[b] = t; 
@@ -189,3 +191,7 @@ function rangeSpeed(fast){
     speed = fast;
    }
    
+
+  
+  
+  //# sourceURL=coffeescript
