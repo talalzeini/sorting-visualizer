@@ -43,31 +43,32 @@ async function selectionSort(arr) {
 
     var small;
     var i;
-    states[i] = 1;
+
 
     for( i = 0; i < arr.length; i++) { 
 
-            small = i;	
-            
-        
-        
-
-        for(var j = i+1; j < arr.length; j++) { 
-
+        small = i;	
+        for(var j = (i+1); j < arr.length; j++) { 
+         
+            states[i+1] =3;
+            states[i] =0;
+            states[small] =3;
             if(arr[j] < arr[small]) { 
 
-                states[small] = 2;
+                states[i+1] =3;
+                states[i] =0;
+                states[small] =2;
                 small = j;
 
             }
-           
+        
 
-        }
-
-        states[i] = 0;
+        }  
                 // Call to swap function 
                 await swap(arr, small, i); 
-            
+                states[small] =2;
+                states[i] = 2;
+               
         } 
         document.getElementById('resetButton').disabled = false;
         
@@ -84,7 +85,7 @@ async function bubbleSort(arr) {
         {
             if(arr[i] > arr[i+1]){
                 states[i] = 0;
-                states[i+1] = 0
+                states[i+1] = 0;
                 await swap(arr, i, i+1); 
                 states[i] = 2;
                 states[i+1] = 2;
@@ -96,9 +97,27 @@ document.getElementById('resetButton').disabled = false;
 return arr; 
 }
 
-   
+async function insertionSort(arr){
 
+    var i;
+    var value;
+    var index;
+    var k;
+    for(i = 0; i < arr.length; i++){
+        
+        
+        value = arr[i];
+        index = i;
+        
+        while (index > 0 && arr[index-1] > value){
 
+        arr[index] = arr[index-1];
+        index = index-1;
+        }
+        arr[index] = value;
+}
+}
+ 
 // Definition of draw function 
 function draw() { 
     background(0); 
@@ -120,6 +139,11 @@ function draw() {
             // Element currently sorting 
            fill(255, 173, 153);
         } 
+        else if (states[i] == 3) { 
+            
+            // Element currently sorting 
+           fill(255, 255, 0);
+        } 
   
         
     
@@ -138,7 +162,7 @@ async function swap(arr, a, b) {
    
    
    
-    await sleep(200); 
+    await sleep(100); 
     let t = arr[a]; 
     arr[a] = arr[b]; 
     arr[b] = t; 
@@ -155,16 +179,22 @@ function selection()
 {
     document.getElementById('bubble').disabled = true;
     document.getElementById('resetButton').disabled = true;
+    document.getElementById('insertion').disabled = true;
     selectionSort(values, 0, values.length); 
-
 }
 function bubble()
 {
     document.getElementById('selection').disabled = true;
     document.getElementById('resetButton').disabled = true;
+    document.getElementById('insertion').disabled = true;
     bubbleSort(values, 0, values.length); 
- 
-
+}
+function insertion()
+{
+    document.getElementById('bubble').disabled = true;
+    document.getElementById('selection').disabled = true;
+    document.getElementById('resetButton').disabled = true;
+    insertionSort(values, 0, values.length); 
 }
 
 function search(ele) {
@@ -172,9 +202,6 @@ function search(ele) {
     if(event.key === 'Enter') {
             
         eh = ele.value;
-
-       
-
 }
 }
 
