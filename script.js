@@ -34,10 +34,7 @@ function setup() {
         fill(255, 173, 153);
     }
     } 
-    document.getElementById('bubble').disabled = false;
-    document.getElementById('selection').disabled = false;
-    document.getElementById('insertion').disabled = false;
-    document.getElementById('quick').disabled = false;
+    enable()
 } 
 
 
@@ -76,8 +73,7 @@ async function selectionSort(arr) {
                 states[i] = 2;
                
         } 
-        document.getElementById('resetButton').disabled = false;
-        
+       enable()  
     return arr; 
 
 } 
@@ -102,7 +98,7 @@ async function bubbleSort(arr) {
     }
             states[i] = 0;     
 } 
-document.getElementById('resetButton').disabled = false;
+enable()
 return arr; 
 }
 // bubble sort ends here
@@ -143,7 +139,7 @@ async function partition(arr, start, end) {
         for(let i = start; i < end; i++) { 
             states[i] = 1; 
         } 
-        document.getElementById('resetButton').disabled = false;
+        enable()
     return pivotIndex; 
 } 
 // quick sort starts here
@@ -189,40 +185,25 @@ function sleep(speed) {
 // calling selection sort
 function selection()
 {
-    document.getElementById('selection').disabled = true;
-    document.getElementById('bubble').disabled = true;
-    document.getElementById('resetButton').disabled = true;
-    document.getElementById('insertion').disabled = true;
-    document.getElementById('quick').disabled = true;
+    disable()
     selectionSort(values, 0, values.length); 
 }
 // calling bubble sort
 function bubble()
 {
-    document.getElementById('bubble').disabled = true;
-    document.getElementById('selection').disabled = true;
-    document.getElementById('resetButton').disabled = true;
-    document.getElementById('insertion').disabled = true;
-    document.getElementById('quick').disabled = true;
+    disable();
     bubbleSort(values, 0, values.length); 
 }
 // calling insertion sort
 function insertion()
 {
-    document.getElementById('insertion').disabled = true;
-    document.getElementById('bubble').disabled = true;
-    document.getElementById('selection').disabled = true;
-    document.getElementById('resetButton').disabled = true;
-    document.getElementById('quick').disabled = true;
+    disable();
     insertionSort(values, 0, values.length); 
 }
 // calling quick sort
 function quick(){
-    document.getElementById('quick').disabled = true;
-    document.getElementById('bubble').disabled = true;
-    document.getElementById('selection').disabled = true;
-    document.getElementById('insertion').disabled = true;
-    document.getElementById('resetButton').disabled = true;
+   
+    disable();
     quickSort(values, 0, values.length);  
 }
 
@@ -243,3 +224,54 @@ function rangeSpeed(fast){
 
   
   
+function disable(){
+
+    document.getElementById('rangeWidth').disabled = true;
+    document.getElementById('rangeWidth').classList.add('red');
+
+    document.getElementById('resetButton').disabled = true;
+    document.getElementById('resetButton').classList.add("red");
+
+    document.getElementById('selection').disabled = true;
+    document.getElementById('selection').classList.add("redButton");
+    document.getElementById('selection').classList.remove("buttons");
+
+    document.getElementById('bubble').disabled = true;
+    document.getElementById('bubble').classList.add("redButton");
+    document.getElementById('bubble').classList.remove("buttons");
+
+    document.getElementById('insertion').disabled = true;
+    document.getElementById('insertion').classList.add("redButton");
+    document.getElementById('insertion').classList.remove("buttons");
+
+    document.getElementById('quick').disabled = true;
+    document.getElementById('quick').classList.add("redButton");
+    document.getElementById('quick').classList.remove("buttons");
+}
+
+  
+function enable(){
+    
+    document.getElementById('rangeWidth').disabled = false;
+    document.getElementById('rangeWidth').classList.remove('red');
+
+    document.getElementById('resetButton').disabled = false;
+    document.getElementById('resetButton').classList.remove("red");
+
+
+    document.getElementById('selection').disabled = false;
+    document.getElementById('selection').classList.remove("redButton");
+    document.getElementById('selection').classList.add("buttons");
+
+    document.getElementById('bubble').disabled = false;
+    document.getElementById('bubble').classList.remove("redButton");
+    document.getElementById('bubble').classList.add("buttons");
+
+    document.getElementById('insertion').disabled = false;
+    document.getElementById('insertion').classList.remove("redButton");
+    document.getElementById('insertion').classList.add("buttons");
+
+    document.getElementById('quick').disabled = false;
+    document.getElementById('quick').classList.remove("redButton");
+    document.getElementById('quick').classList.add("buttons");
+}
