@@ -1,0 +1,155 @@
+body { 
+    padding: 0; 
+    margin: 200px 350px auto;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    overflow: hidden;
+} 
+
+nav {
+width: 100%;
+height: 80px;
+top: 0;
+position: fixed;
+z-index: 1;
+
+
+}
+nav #menu {
+
+right:250px;
+position: fixed;
+}
+
+nav #menu li {
+
+display: inline-block;
+cursor: pointer;
+font-weight: 300;
+line-height: 80px;
+position: relative;
+transition: all 0.3s ease-out;
+}
+
+
+nav #menu li .buttons {
+font-family: 'Courier New', Courier, monospace;
+border: none;
+color: black;
+transition: all 0.1s ease-out;
+font-size:19px;
+vertical-align: middle;
+padding: 5px 25px;
+text-decoration: none;
+font-weight:500;
+border:2px solid white;
+background-color: transparent;
+color:white;
+}
+
+nav #menu li .buttons:hover {
+
+text-decoration: none;
+background-color: white;
+color:black;
+}
+
+
+.range{
+
+z-index:1;
+width:400px;
+padding:7px;
+background: rgba(128, 255, 170);
+outline:none;
+vertical-align: middle;
+transform: rotate(180deg);
+overflow: hidden;
+-webkit-appearance:none;
+box-shadow: 0 0 0 2px white, inset 0 0 20px rgba(255, 173, 153);
+
+/* transform: rotate(270deg); */
+}
+.range::-webkit-slider-thumb{
+-webkit-appearance:none;
+width:18px;
+z-index:3;
+height:18px;
+border-radius: 50%;
+background-color: black;
+cursor:pointer;
+border:3px  solid white;
+box-shadow:-410px 100px 100px 400px rgba(255, 173, 153, 0.8);
+}
+
+.reset{
+width:36px;
+height: 36px;
+border: none;
+border:2px  solid white;
+vertical-align: middle;
+position: relative;
+background-color: rgba(255, 173, 153);
+color:black;
+font-size: 20px;
+font-weight:700;
+transition: all 0.2s ease-out;
+}
+.reset:hover{
+background: rgba(128, 255, 170);
+}
+.width{
+width:36px;
+height: 36px;
+border: none;
+border:2px  solid white;
+vertical-align: middle;
+position: relative;
+background-color: rgba(255, 173, 153);
+color:black;
+font-size: 20px;
+font-weight:700;
+transition: all 0.2s ease-out;
+}
+.speed{
+
+width:36px;
+height: 36px;
+border: none;
+border:2px  solid white;
+vertical-align: middle;
+position: relative;
+background-color: rgba(255, 173, 153);
+color:black;
+font-size: 20px;
+font-weight:700;
+transition: all 0.2s ease-out;
+}
+
+
+.centerSpeed{
+     right: 450px;
+     position:relative;
+}
+.hide{
+    display:none;
+}
+.red{
+    background-color: rgba(255, 173, 153);
+}
+
+.redButton{
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    color: black;
+    transition: all 0.1s ease-out;
+    font-size:19px;
+    vertical-align: middle;
+    padding: 5px 25px;
+    text-decoration: none;
+    font-weight:500;
+    border:2px solid white;
+    background-color: rgba(255, 173, 153);
+    color:black;
+    }

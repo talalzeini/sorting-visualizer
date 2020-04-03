@@ -1,11 +1,10 @@
-// Set Global Variables 
+
 
 let values = []; 
 // let w =  document.getElementById('rangeValue').innerHTML;
 
-let w = 30;
-
-
+let w;
+w = 20;
 
 // To store the state of each bar 
 // in order to change the color 
@@ -13,12 +12,17 @@ let states = [];
 let width = 1200
 let height = 600
 
+function rangeSlide(value){
+
+  w = value;
+  
+  setup();
+   }
+   
 function setup() { 
     
-    // Create Canvas of Size Windows 
-    // Width * Windows Height 
     createCanvas(width, height); 
-
+    colorMode(HSB, height);
 
     // Insert Random values in array 
     values = new Array(floor(width/w+1)); 
@@ -30,15 +34,17 @@ function setup() {
         fill(255, 173, 153);
     }
     } 
-
     document.getElementById('bubble').disabled = false;
     document.getElementById('selection').disabled = false;
-   
-    // Call to bubble sort function 
-   
+    document.getElementById('insertion').disabled = false;
+    document.getElementById('quick').disabled = false;
 } 
 
-// Definition of bubble sort 
+
+
+
+
+// selection sort starts here
 async function selectionSort(arr) { 
 
     var small;
@@ -75,6 +81,9 @@ async function selectionSort(arr) {
     return arr; 
 
 } 
+// selection sort ends here
+
+// bubble sort starts here
 async function bubbleSort(arr) { 
 
     var k;
@@ -96,105 +105,125 @@ async function bubbleSort(arr) {
 document.getElementById('resetButton').disabled = false;
 return arr; 
 }
+// bubble sort ends here
 
-async function insertionSort(arr){
+// quick sort starts here
+async function quickSort(arr, start, end) { 
+    if(start >= end) { 
+        return; 
+    } 
+    let index = await partition(arr, start, end); 
+    states[index] = 1; 
+    
+    await Promise.all([quickSort(arr, start, index-1), 
+            quickSort(arr, index+1, end)]); 
+} 
+  
+async function partition(arr, start, end) { 
+   
+    for(let i = start; i< end; i++) { 
+        states[i] = 1; 
+    } 
+      
+    let pivotIndex = start; 
+    let pivotValue = arr[end]; 
+    states[pivotIndex] = 0; 
+      
+    for(let i = start; i < end; i++) { 
+        if(arr[i]<pivotValue) { 
+            await swap(arr, i, pivotIndex); 
+            states[pivotIndex] = 1; 
+            pivotIndex++; 
+            states[pivotIndex] = 0; 
+        } 
+    } 
+      
+    await swap(arr, pivotIndex, end); 
+      
+        for(let i = start; i < end; i++) { 
+            states[i] = 1; 
+        } 
+        document.getElementById('resetButton').disabled = false;
+    return pivotIndex; 
+} 
+// quick sort starts here
 
-    var i;
-    var value;
-    var index;
-    var k;
-    for(i = 0; i < arr.length; i++){
-        
-        
-        value = arr[i];
-        index = i;
-        
-        while (index > 0 && arr[index-1] > value){
 
-        arr[index] = arr[index-1];
-        index = index-1;
-        }
-        arr[index] = value;
-}
-}
- 
-// Definition of draw function 
+//  draw function 
 function draw() { 
     background(0); 
     
     for(let i = 0; i < values.length; i++) { 
-      
-        fill(255, 173, 153); // red
         
-        if(states[i] == 0) { 
-            fill(128, 255, 170); // green
-        } 
-        else if (states[i] == 1) { 
-            
-            // Element currently sorting 
-            fill("#58FA82"); 
-        } 
-        else if (states[i] == 2) { 
-            
-            // Element currently sorting 
-           fill(255, 173, 153);
-        } 
-        else if (states[i] == 3) { 
-            
-            // Element currently sorting 
-           fill(255, 255, 0);
-        } 
-  
-        
-    
-
-        else { 
-            fill(255, 173, 153); // red
-        }  
-        rect(i*w, height - values[i], w, values[i]); 
+        let col = color(values[i], height,height);
+        stroke(255, 204, 0);
+        strokeWeight(3);
+        fill(col);
+        rect(i*w, height - values[i], w, values[i]);
     } 
+ 
 }
+
+
+
+
+
+
 let speed =  document.getElementById('rangeSpeed').innerHTML;
 speed = 100;
 
-// Definition of swap function 
+//  swap function 
 async function swap(arr, a, b) { 
-   
-   
-   
-    await sleep(100); 
+    await sleep(speed); 
     let t = arr[a]; 
     arr[a] = arr[b]; 
     arr[b] = t; 
 } 
 
-// Definition of sleep function 
+// speed function 
 function sleep(speed) { 
 
     return new Promise(resolve => setTimeout(resolve, speed)); 
 } 
 
-
+// calling selection sort
 function selection()
 {
+    document.getElementById('selection').disabled = true;
     document.getElementById('bubble').disabled = true;
     document.getElementById('resetButton').disabled = true;
     document.getElementById('insertion').disabled = true;
+    document.getElementById('quick').disabled = true;
     selectionSort(values, 0, values.length); 
 }
+// calling bubble sort
 function bubble()
-{
-    document.getElementById('selection').disabled = true;
-    document.getElementById('resetButton').disabled = true;
-    document.getElementById('insertion').disabled = true;
-    bubbleSort(values, 0, values.length); 
-}
-function insertion()
 {
     document.getElementById('bubble').disabled = true;
     document.getElementById('selection').disabled = true;
     document.getElementById('resetButton').disabled = true;
+    document.getElementById('insertion').disabled = true;
+    document.getElementById('quick').disabled = true;
+    bubbleSort(values, 0, values.length); 
+}
+// calling insertion sort
+function insertion()
+{
+    document.getElementById('insertion').disabled = true;
+    document.getElementById('bubble').disabled = true;
+    document.getElementById('selection').disabled = true;
+    document.getElementById('resetButton').disabled = true;
+    document.getElementById('quick').disabled = true;
     insertionSort(values, 0, values.length); 
+}
+// calling quick sort
+function quick(){
+    document.getElementById('quick').disabled = true;
+    document.getElementById('bubble').disabled = true;
+    document.getElementById('selection').disabled = true;
+    document.getElementById('insertion').disabled = true;
+    document.getElementById('resetButton').disabled = true;
+    quickSort(values, 0, values.length);  
 }
 
 function search(ele) {
@@ -205,13 +234,6 @@ function search(ele) {
 }
 }
 
-function rangeSlide(value){
-
-
- w = value;
-}
-
-
 function rangeSpeed(fast){
     
 
@@ -221,4 +243,3 @@ function rangeSpeed(fast){
 
   
   
-  //# sourceURL=coffeescript
