@@ -20,7 +20,6 @@ function rangeSlide(value){
    }
    
 function setup() { 
-    
     createCanvas(width, height); 
     colorMode(HSB, height);
 
@@ -106,6 +105,7 @@ return arr;
 // quick sort starts here
 async function quickSort(arr, start, end) { 
     if(start >= end) { 
+       
         return; 
     } 
     let index = await partition(arr, start, end); 
@@ -113,6 +113,9 @@ async function quickSort(arr, start, end) {
     
     await Promise.all([quickSort(arr, start, index-1), 
             quickSort(arr, index+1, end)]); 
+
+
+        
 } 
   
 async function partition(arr, start, end) { 
@@ -139,7 +142,7 @@ async function partition(arr, start, end) {
         for(let i = start; i < end; i++) { 
             states[i] = 1; 
         } 
-        enable()
+
     return pivotIndex; 
 } 
 // quick sort starts here
@@ -147,20 +150,19 @@ async function partition(arr, start, end) {
 
 //  draw function 
 function draw() { 
-    background(0); 
-    
+    background(0)
+
     for(let i = 0; i < values.length; i++) { 
         
-        let col = color(values[i], height,height);
+        col = color(values[i], height,height);
+       
         stroke(255, 204, 0);
         strokeWeight(3);
         fill(col);
         rect(i*w, height - values[i], w, values[i]);
     } 
- 
+
 }
-
-
 
 
 
@@ -185,26 +187,31 @@ function sleep(speed) {
 // calling selection sort
 function selection()
 {
+    setup();
     disable()
     selectionSort(values, 0, values.length); 
 }
 // calling bubble sort
 function bubble()
 {
+    setup();
     disable();
     bubbleSort(values, 0, values.length); 
 }
 // calling insertion sort
 function insertion()
 {
+    setup();
     disable();
     insertionSort(values, 0, values.length); 
 }
 // calling quick sort
 function quick(){
    
+    setup();
     disable();
-    quickSort(values, 0, values.length);  
+    quickSort(values, 0, values.length); 
+  
 }
 
 function search(ele) {
@@ -258,7 +265,6 @@ function enable(){
     document.getElementById('resetButton').disabled = false;
     document.getElementById('resetButton').classList.remove("red");
 
-
     document.getElementById('selection').disabled = false;
     document.getElementById('selection').classList.remove("redButton");
     document.getElementById('selection').classList.add("buttons");
@@ -274,4 +280,16 @@ function enable(){
     document.getElementById('quick').disabled = false;
     document.getElementById('quick').classList.remove("redButton");
     document.getElementById('quick').classList.add("buttons");
+}
+
+function settingsOpen(){
+
+    document.getElementById('settings').classList.add("hide");
+    document.getElementById('info').classList.remove("hide");
+    document.getElementById('close').classList.remove("hide");
+}
+function settingsClose(){
+    document.getElementById('settings').classList.remove("hide");
+    document.getElementById('info').classList.add("hide");
+    document.getElementById('close').classList.add("hide");
 }
