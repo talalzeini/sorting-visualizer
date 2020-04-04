@@ -63,7 +63,10 @@ function rangeSlide(value){
 function setup() { 
     stopWatch()
     createCanvas(width, height); 
+   
     colorMode(HSB, height);
+  
+
 
     // Insert Random values in array 
     values = new Array(floor(width/w+1)); 
@@ -147,7 +150,6 @@ enable()
 return arr; 
 }
 // bubble sort ends here
-
 // quick sort starts here
 async function quickSort(arr, start, end) { 
 
@@ -199,14 +201,21 @@ async function partition(arr, start, end) {
 //  draw function 
 function draw() { 
     background(0)
-    for(let i = 0; i < values.length; i++) { 
-        
+    
+    //move the shape to the center of the canvas
+
+    //apply the final rotation
+
+    for(let i = 0; i < values.length-1; i++) { 
+
+
         col = color(values[i], height,height);
-       
         stroke(255, 204, 0);
+
         strokeWeight(3);
         fill(col);
         rect(i*w, height - values[i], w, values[i]);
+
     } 
 }
 
@@ -342,3 +351,13 @@ function settingsClose(){
 }
 
 
+function rotateButton(){
+    document.getElementById('defaultCanvas0').classList.add("canvasRotation");
+    document.getElementById('syncIcon').classList.add("hide");
+    document.getElementById('syncIcon2').classList.remove("hide");
+}
+function rotateBack(){
+    document.getElementById('defaultCanvas0').classList.remove("canvasRotation");
+    document.getElementById('syncIcon2').classList.add("hide");
+    document.getElementById('syncIcon').classList.remove("hide");
+}
