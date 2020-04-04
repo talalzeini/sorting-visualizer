@@ -1,10 +1,51 @@
 
-
 let values = []; 
-// let w =  document.getElementById('rangeValue').innerHTML;
-
 let w;
 w = 20;
+
+var milliseconds = 0, seconds = 0, minutes = 0;
+var timer;
+
+var stopWatchElement = document.querySelector('.stopwatch');
+
+function startWatch(){
+    if(!timer){
+    timer = setInterval(run, 10);
+    document.getElementById('sw').classList.add('greenStopWatch');
+    document.getElementById('sw').classList.remove('redStopWatch');
+    document.getElementById('swIcon').classList.add('greenStopWatch');
+    document.getElementById('swIcon').classList.remove('redStopWatch');
+    }
+}
+function run(){
+    stopWatchElement.textContent = (minutes < 10 ? "0" + minutes : minutes) + ":" +  (seconds < 10 ? "0" + seconds : seconds) + ":" + (milliseconds < 10 ? "0" + milliseconds : milliseconds);
+    milliseconds++;
+    if(milliseconds== 100){
+        milliseconds = 0;
+        seconds++;
+    }
+    if(seconds == 60){
+        seconds = 0;
+        minutes++;
+    }
+}
+function pauseWatch(){
+    clearInterval(timer);
+    timer = false;
+    document.getElementById('sw').classList.remove('greenStopWatch');
+    document.getElementById('sw').classList.add('redStopWatch');
+    document.getElementById('swIcon').classList.remove('greenStopWatch');
+    document.getElementById('swIcon').classList.add('redStopWatch');
+}
+function stopWatch(){
+    clearInterval(timer);
+    timer = false;
+    milliseconds = 0, seconds = 0, minutes = 0;
+    stopWatchElement.textContent = (minutes < 10 ? "0" + minutes : minutes) + ":" +  (seconds < 10 ? "0" + seconds : seconds) + ":" + (milliseconds < 10 ? "0" + milliseconds : milliseconds);
+    
+}
+
+
 
 // To store the state of each bar 
 // in order to change the color 
@@ -20,6 +61,7 @@ function rangeSlide(value){
    }
    
 function setup() { 
+    stopWatch()
     createCanvas(width, height); 
     colorMode(HSB, height);
 
@@ -43,6 +85,7 @@ function setup() {
 // selection sort starts here
 async function selectionSort(arr) { 
 
+    startWatch()
     var small;
     var i;
 
@@ -72,6 +115,7 @@ async function selectionSort(arr) {
                 states[i] = 2;
                
         } 
+        pauseWatch()
        enable()  
     return arr; 
 
@@ -81,6 +125,7 @@ async function selectionSort(arr) {
 // bubble sort starts here
 async function bubbleSort(arr) { 
 
+    startWatch()
     var k;
     var i;
 
@@ -97,6 +142,7 @@ async function bubbleSort(arr) {
     }
             states[i] = 0;     
 } 
+pauseWatch()
 enable()
 return arr; 
 }
@@ -104,6 +150,8 @@ return arr;
 
 // quick sort starts here
 async function quickSort(arr, start, end) { 
+
+    
     if(start >= end) { 
        
         return; 
@@ -151,7 +199,6 @@ async function partition(arr, start, end) {
 //  draw function 
 function draw() { 
     background(0)
-
     for(let i = 0; i < values.length; i++) { 
         
         col = color(values[i], height,height);
@@ -161,9 +208,7 @@ function draw() {
         fill(col);
         rect(i*w, height - values[i], w, values[i]);
     } 
-
 }
-
 
 
 
@@ -178,6 +223,7 @@ async function swap(arr, a, b) {
     arr[b] = t; 
 } 
 
+
 // speed function 
 function sleep(speed) { 
 
@@ -187,6 +233,7 @@ function sleep(speed) {
 // calling selection sort
 function selection()
 {
+
     setup();
     disable()
     selectionSort(values, 0, values.length); 
@@ -293,3 +340,5 @@ function settingsClose(){
     document.getElementById('info').classList.add("hide");
     document.getElementById('close').classList.add("hide");
 }
+
+
