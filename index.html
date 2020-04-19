@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="style.css" type="text/css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src ="https://use.fontawesome.com/d1341f9b7a.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
@@ -22,11 +23,9 @@
 	
 				<li><button id="rangeIcon"  class="width"><i class="fas fa-arrows-alt-h"></i></button><input id="rangeWidth"  placeholder="speed" class="range" type="range" name="" value="20" min ="10" max="60" onchange="rangeSlide(this.value)"></li>
 				<li><button  class="buttons" id="selection" onclick = "selection()">Selection</button></li>
-				<li><button  class="buttons"  id="bubble" onclick = "bubble()">Bubble</button></li>
 				<li><button  class="reset"   id="resetButton" onclick = "setup()"><i class="fa fa-undo"></i></button></li>
 				<li><button id="syncIcon"  class="reset"  onclick = "rotateButton()"><i class="fas fa-sync-alt"></i></button><button id="syncIcon2"  class="reset hide"  onclick = "rotateBack()"><i  class="fas fa-sync-alt sync"></i></button></li>
-				<li><button class="buttons"  id="insertion" onclick = "quick()">Insertion</button></li>
-				<li><button class="buttons"  id="quick" onclick = "quick()">Quick</button></li> 
+				<li><button  class="buttons"  id="bubble" onclick = "bubble()">Bubble</button></li>
 				<li><button id=speedIcon  class="speed"><i class="fas fa-running"></i></button><input placeholder="speed"  id="rangeSpeed" class="range" type="range" name="" value="100" min ="10" max="500" onchange="rangeSpeed(this.value)" onmousemove="rangeSpeed(this.value)"></li>
 	</ul>	 
 	
@@ -39,7 +38,8 @@
 <button style="position: absolute; bottom: 75px; left:25px;"  class="info"><i class="fas fa-arrows-alt-h"></i></button><p style=" color:white;position: absolute; bottom: 66px; left:75px;">Size</p>
 <button style="position: absolute; bottom: 125px; left:25px;"  class="info"><i class="fa fa-undo"></i></button><p style=" color:white;position: absolute; bottom: 116px; left:75px;">Reset</p>
 <button style="position: absolute; bottom: 175px; left:25px;"  class="info"><i class="fas fa-running"></i></button><p style=" color:white;position: absolute; bottom: 166px; left:75px;">Speed</p>
-<button style="position: absolute; bottom: 225px; left:25px;"  class="info"><i class="fas fa-stopwatch"></i></button><p style=" color:white;position: absolute; bottom: 216px; left:75px;">Stopwatch</p>
+<button style="position: absolute; bottom: 225px; left:25px;"  class="info"><i class="fas fa-sync-alt"></i></button><p style=" color:white;position: absolute; bottom: 216px; left:75px;">Rotation</p>
+<button style="position: absolute; bottom: 275px; left:25px;"  class="info"><i class="fas fa-stopwatch"></i></button><p style=" color:white;position: absolute; bottom: 266px; left:75px;">Stopwatch</p>
 </div>
 
 

@@ -53,6 +53,16 @@ let states = [];
 let width = 1200
 let height = 600
 
+// if($(window).width() >= 320 && $(window).width() <= 420){
+//     w = 12;
+//     width = 350;
+//     height = 175;
+//     console.log('width >= 10000');
+//   }
+
+
+
+
 function rangeSlide(value){
 
   w = value;
@@ -69,7 +79,7 @@ function setup() {
 
 
     // Insert Random values in array 
-    values = new Array(floor(width/w+1)); 
+    values = new Array(floor(width/w)); 
 
     for(let i = 0; i < values.length; i++) { 
         values[i] = float(random(height)+20); 
@@ -151,73 +161,71 @@ return arr;
 }
 // bubble sort ends here
 // quick sort starts here
-async function quickSort(arr, start, end) { 
+
+// async function quickSort(arr, start, end) { 
 
     
-    if(start >= end) { 
+//     if(start >= end) { 
        
-        return; 
-    } 
-    let index = await partition(arr, start, end); 
-    states[index] = 1; 
+//         return; 
+//     } 
+//     let index = await partition(arr, start, end); 
+//     states[index] = 1; 
     
-    await Promise.all([quickSort(arr, start, index-1), 
-            quickSort(arr, index+1, end)]); 
+//     await Promise.all([quickSort(arr, start, index-1), 
+//             quickSort(arr, index+1, end)]); 
 
 
         
-} 
+// } 
   
-async function partition(arr, start, end) { 
+// async function partition(arr, start, end) { 
    
-    for(let i = start; i< end; i++) { 
-        states[i] = 1; 
-    } 
+//     for(let i = start; i< end; i++) { 
+//         states[i] = 1; 
+//     } 
       
-    let pivotIndex = start; 
-    let pivotValue = arr[end]; 
-    states[pivotIndex] = 0; 
+//     let pivotIndex = start; 
+//     let pivotValue = arr[end]; 
+//     states[pivotIndex] = 0; 
       
-    for(let i = start; i < end; i++) { 
-        if(arr[i]<pivotValue) { 
-            await swap(arr, i, pivotIndex); 
-            states[pivotIndex] = 1; 
-            pivotIndex++; 
-            states[pivotIndex] = 0; 
-        } 
-    } 
+//     for(let i = start; i < end; i++) { 
+//         if(arr[i]<pivotValue) { 
+//             await swap(arr, i, pivotIndex); 
+//             states[pivotIndex] = 1; 
+//             pivotIndex++; 
+//             states[pivotIndex] = 0; 
+//         } 
+//     } 
       
-    await swap(arr, pivotIndex, end); 
+//     await swap(arr, pivotIndex, end); 
       
-        for(let i = start; i < end; i++) { 
-            states[i] = 1; 
-        } 
+//         for(let i = start; i < end; i++) { 
+//             states[i] = 1; 
+//         } 
 
-    return pivotIndex; 
-} 
+//     return pivotIndex; 
+// } 
 // quick sort starts here
 
 
 //  draw function 
 function draw() { 
-    background(0)
+    background(0); 
     
-    //move the shape to the center of the canvas
-
-    //apply the final rotation
-
     for(let i = 0; i < values.length-1; i++) { 
-
-
-        col = color(values[i], height,height);
+        
+        let col = color(values[i], height,height);
         stroke(255, 204, 0);
-
         strokeWeight(3);
         fill(col);
         rect(i*w, height - values[i], w, values[i]);
-
     } 
+ 
 }
+
+
+
 
 
 
@@ -255,20 +263,20 @@ function bubble()
     bubbleSort(values, 0, values.length); 
 }
 // calling insertion sort
-function insertion()
-{
-    setup();
-    disable();
-    insertionSort(values, 0, values.length); 
-}
+// function insertion()
+// {
+//     setup();
+//     disable();
+//     insertionSort(values, 0, values.length); 
+// }
 // calling quick sort
-function quick(){
+// function quick(){
    
-    setup();
-    disable();
-    quickSort(values, 0, values.length); 
+//     setup();
+//     disable();
+//     quickSort(values, 0, values.length); 
   
-}
+// }
 
 function search(ele) {
 
@@ -282,7 +290,7 @@ function rangeSpeed(fast){
     
 
     speed = fast;
-   }
+}
    
 
   
@@ -303,13 +311,13 @@ function disable(){
     document.getElementById('bubble').classList.add("redButton");
     document.getElementById('bubble').classList.remove("buttons");
 
-    document.getElementById('insertion').disabled = true;
-    document.getElementById('insertion').classList.add("redButton");
-    document.getElementById('insertion').classList.remove("buttons");
+    // document.getElementById('insertion').disabled = true;
+    // document.getElementById('insertion').classList.add("redButton");
+    // document.getElementById('insertion').classList.remove("buttons");
 
-    document.getElementById('quick').disabled = true;
-    document.getElementById('quick').classList.add("redButton");
-    document.getElementById('quick').classList.remove("buttons");
+    // document.getElementById('quick').disabled = true;
+    // document.getElementById('quick').classList.add("redButton");
+    // document.getElementById('quick').classList.remove("buttons");
 }
 
   
@@ -329,13 +337,13 @@ function enable(){
     document.getElementById('bubble').classList.remove("redButton");
     document.getElementById('bubble').classList.add("buttons");
 
-    document.getElementById('insertion').disabled = false;
-    document.getElementById('insertion').classList.remove("redButton");
-    document.getElementById('insertion').classList.add("buttons");
+    // document.getElementById('insertion').disabled = false;
+    // document.getElementById('insertion').classList.remove("redButton");
+    // document.getElementById('insertion').classList.add("buttons");
 
-    document.getElementById('quick').disabled = false;
-    document.getElementById('quick').classList.remove("redButton");
-    document.getElementById('quick').classList.add("buttons");
+    // document.getElementById('quick').disabled = false;
+    // document.getElementById('quick').classList.remove("redButton");
+    // document.getElementById('quick').classList.add("buttons");
 }
 
 function settingsOpen(){
@@ -361,3 +369,8 @@ function rotateBack(){
     document.getElementById('syncIcon2').classList.add("hide");
     document.getElementById('syncIcon').classList.remove("hide");
 }
+
+
+
+
+
