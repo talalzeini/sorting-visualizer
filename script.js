@@ -60,6 +60,10 @@ let height = 600
 //     console.log('width >= 10000');
 //   }
 
+if($(window).width() >= 0 && $(window).width() <= 1200){
+    document.getElementById('body').classList.add('hide');
+    window.alert("This website isn't available yet for mobile devices.");
+  }
 
 
 
