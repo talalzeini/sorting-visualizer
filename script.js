@@ -153,8 +153,7 @@ async function bubbleSort(arr) {
                 states[i] = 0;
                 states[i+1] = 0;
                 await swap(arr, i, i+1); 
-                states[i] = 2;
-                states[i+1] = 2;
+                
         }
     }
             states[i] = 0;     
@@ -163,6 +162,41 @@ pauseWatch()
 enable()
 return arr; 
 }
+
+async function insertionSort (arr){
+
+    startWatch()
+    var i, value, index;
+    for(i = 0; i < arr.length-1; i++){
+      await sleep(speed);
+      value = arr[i];
+      index = i;
+      while(index > 0 && arr[index-1] > value){
+        arr[index] = arr[index-1];
+        index = index-1;
+      }
+      arr[index] = value;
+    }
+    pauseWatch()
+    enable()
+    return arr;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // bubble sort ends here
 // quick sort starts here
 
@@ -245,6 +279,7 @@ async function swap(arr, a, b) {
 } 
 
 
+
 // speed function 
 function sleep(speed) { 
 
@@ -267,12 +302,12 @@ function bubble()
     bubbleSort(values, 0, values.length); 
 }
 // calling insertion sort
-// function insertion()
-// {
-//     setup();
-//     disable();
-//     insertionSort(values, 0, values.length); 
-// }
+function insertion(){
+     setup();
+     disable();
+     insertionSort(values, 0, values.length); 
+}
+
 // calling quick sort
 // function quick(){
    
