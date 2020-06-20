@@ -183,68 +183,42 @@ async function insertionSort (arr){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// bubble sort ends here
 // quick sort starts here
 
-// async function quickSort(arr, start, end) { 
-
-    
-//     if(start >= end) { 
-       
-//         return; 
-//     } 
-//     let index = await partition(arr, start, end); 
-//     states[index] = 1; 
-    
-//     await Promise.all([quickSort(arr, start, index-1), 
-//             quickSort(arr, index+1, end)]); 
-
-
-        
-// } 
+async function shakerSort(arr) {
+    startWatch()
+    if (arr.length <= 1)
+        return; 
+   var p, i;
+    for (p = 1; p <= arr.length / 2; p++) {
+        await sleep(speed); 
+        var doneEarlyOptimization = true
+        for (i = p - 1; i < arr.length - p; i++){  
+            if (arr[i] > arr[i+1]) {
+                var temp = arr[i+1];
+                arr[i+1] = arr[i];
+                arr[i] = temp;
+                doneEarlyOptimization = false;
+            }
+        }
+        for (i = arr.length - p - 1; i >= p; i--) {  
+            await sleep(speed); 
+            if (arr[i] < arr[i-1]) {
+                var temp = arr[i-1];
+                arr[i-1] = arr[i];
+                arr[i] = temp;
+                doneEarlyOptimization = false;
+            }
+        }
+        if (doneEarlyOptimization)
+            break;
+    }
+    pauseWatch()
+    enable()
+    return;
+}
   
-// async function partition(arr, start, end) { 
-   
-//     for(let i = start; i< end; i++) { 
-//         states[i] = 1; 
-//     } 
-      
-//     let pivotIndex = start; 
-//     let pivotValue = arr[end]; 
-//     states[pivotIndex] = 0; 
-      
-//     for(let i = start; i < end; i++) { 
-//         if(arr[i]<pivotValue) { 
-//             await swap(arr, i, pivotIndex); 
-//             states[pivotIndex] = 1; 
-//             pivotIndex++; 
-//             states[pivotIndex] = 0; 
-//         } 
-//     } 
-      
-//     await swap(arr, pivotIndex, end); 
-      
-//         for(let i = start; i < end; i++) { 
-//             states[i] = 1; 
-//         } 
 
-//     return pivotIndex; 
-// } 
-// quick sort starts here
 
 
 //  draw function 
@@ -307,15 +281,22 @@ function insertion(){
      disable();
      insertionSort(values, 0, values.length); 
 }
+function heap(){
+    setup();
+    disable();
+    heapSort(values, 0, values.length); 
+}
+
+
+
 
 // calling quick sort
-// function quick(){
+function shaker(){
    
-//     setup();
-//     disable();
-//     quickSort(values, 0, values.length); 
-  
-// }
+    setup();
+    disable();
+    shakerSort(values, 0, values.length)
+}
 
 function search(ele) {
 
@@ -350,13 +331,13 @@ function disable(){
     document.getElementById('bubble').classList.add("redButton");
     document.getElementById('bubble').classList.remove("buttons");
 
-    // document.getElementById('insertion').disabled = true;
-    // document.getElementById('insertion').classList.add("redButton");
-    // document.getElementById('insertion').classList.remove("buttons");
+    document.getElementById('insertion').disabled = true;
+    document.getElementById('insertion').classList.add("redButton");
+    document.getElementById('insertion').classList.remove("buttons");
 
-    // document.getElementById('quick').disabled = true;
-    // document.getElementById('quick').classList.add("redButton");
-    // document.getElementById('quick').classList.remove("buttons");
+    document.getElementById('shaker').disabled = true;
+    document.getElementById('shaker').classList.add("redButton");
+    document.getElementById('shaker').classList.remove("buttons");
 }
 
   
@@ -376,13 +357,13 @@ function enable(){
     document.getElementById('bubble').classList.remove("redButton");
     document.getElementById('bubble').classList.add("buttons");
 
-    // document.getElementById('insertion').disabled = false;
-    // document.getElementById('insertion').classList.remove("redButton");
-    // document.getElementById('insertion').classList.add("buttons");
+    document.getElementById('insertion').disabled = false;
+    document.getElementById('insertion').classList.remove("redButton");
+    document.getElementById('insertion').classList.add("buttons");
 
-    // document.getElementById('quick').disabled = false;
-    // document.getElementById('quick').classList.remove("redButton");
-    // document.getElementById('quick').classList.add("buttons");
+    document.getElementById('shaker').disabled = false;
+    document.getElementById('shaker').classList.remove("redButton");
+    document.getElementById('shaker').classList.add("buttons");
 }
 
 function settingsOpen(){
