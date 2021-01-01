@@ -81,16 +81,11 @@
               />
             </li>
             <li class="resets" style="display: inline-block">
-              <button
-                id="syncIcon"
-                class="reset fas fa-sync-alt"
-                onclick="rotateButton()"
-              ></button>
-              <button
-                id="syncIcon2"
-                class="reset hide"
-                onclick="rotateBack()"
-              ></button>
+              <button id="syncIcon" class="reset" onclick="rotateButton()">
+                <i class="fas fa-sync-alt"></i></button
+              ><button id="syncIcon2" class="reset hide" onclick="rotateBack()">
+                <i class="fas fa-sync-alt sync"></i>
+              </button>
             </li>
             <li style="display: inline-block">
               <input
@@ -105,12 +100,9 @@
               />
             </li>
             <li class="resets" style="display: inline-block">
-              <button
-                style="text-align: center"
-                class="reset fa fa-undo"
-                id="resetButton"
-                onclick="setup()"
-              ></button>
+              <button class="reset" id="resetButton" onclick="setup()">
+                <i class="fa fa-undo"></i>
+              </button>
             </li>
           </div>
         </div>
