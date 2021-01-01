@@ -71,6 +71,9 @@ nav li {
   -webkit-appearance: none;
   box-shadow: 0 0 0 2px white, inset 0 0 20px rgba(255, 173, 153);
 }
+.block {
+  display: block;
+}
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 18px;
@@ -93,7 +96,7 @@ nav li {
   border: 2px solid white;
   text-align: center;
   margin: 0 auto;
-  display: block;
+  outline: none;
   position: relative;
   background-color: rgba(128, 255, 170);
   color: black;

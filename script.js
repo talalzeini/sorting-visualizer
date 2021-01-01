@@ -327,10 +327,22 @@ function settingsClose() {
 function rotateButton() {
   document.getElementById("defaultCanvas0").classList.add("canvasRotation");
   document.getElementById("syncIcon").classList.add("hide");
+  document.getElementById("syncIcon2").classList.add("fas");
+  document.getElementById("syncIcon2").classList.add("fa-sync-alt");
+  document.getElementById("syncIcon2").classList.add("sync");
+  document.getElementById("syncIcon").classList.remove("fas");
+  document.getElementById("syncIcon").classList.remove("fa-sync-alt");
+  document.getElementById("syncIcon").classList.remove("sync");
   document.getElementById("syncIcon2").classList.remove("hide");
 }
 function rotateBack() {
+  document.getElementById("syncIcon").classList.add("fas");
+  document.getElementById("syncIcon").classList.add("fa-sync-alt");
+  document.getElementById("syncIcon").classList.remove("sync");
   document.getElementById("defaultCanvas0").classList.remove("canvasRotation");
   document.getElementById("syncIcon2").classList.add("hide");
+  document.getElementById("syncIcon2").classList.remove("block");
   document.getElementById("syncIcon").classList.remove("hide");
+  document.getElementById("syncIcon2").classList.remove("fas");
+  document.getElementById("syncIcon2").classList.remove("fa-sync-alt");
 }
