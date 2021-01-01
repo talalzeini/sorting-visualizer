@@ -60,6 +60,7 @@ nav li {
   display: inline-block;
 }
 .range {
+  border-radius: 0%;
   z-index: 1;
   padding: 9px 1px;
   background: rgba(128, 255, 170);
@@ -90,7 +91,9 @@ nav li {
   cursor: pointer;
   border: none;
   border: 2px solid white;
-  vertical-align: middle;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
   position: relative;
   background-color: rgba(128, 255, 170);
   color: black;

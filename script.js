@@ -71,7 +71,11 @@ function displayHeightSize(height) {
 window.onresize = function () {
   location.reload();
 };
+function rangeSlide(value) {
+  w = value;
 
+  setup();
+}
 function setup() {
   stopWatch();
   createCanvas(
