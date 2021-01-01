@@ -1,269 +1,258 @@
-
-body { 
-
-    padding: 0; 
-    margin: 120px 150px auto;
-    background-color: black;
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
-
-} 
-
-.canvasRotation{
-    transform: rotateX(180deg);
+body {
+  overflow: hidden;
+  background-color: black;
+  font-family: "Avenir", Courier, monospace;
+  color: black;
 }
-.sync{
-    transform: rotate(90deg);
+#defaultCanvas0 {
+  width: 100%;
+  border: 5px solid black;
+  z-index: 1;
+  margin: 0px auto;
+  vertical-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.canvasRotation {
+  transform: rotateX(180deg);
+}
+.sync {
+  transform: rotate(90deg);
 }
 nav {
-
-width: 100%;
-height: 80px;
-top: 0;
-position: fixed;
-z-index: 1;
-}
-nav #menu {
-right:250px;
-position: fixed;
+  z-index: 2;
+  height: 80px;
+  background-color: black;
 }
 
-nav #menu li {
-
-display: inline-block;
-cursor: pointer;
-font-weight: 300;
-line-height: 80px;
-position: relative;
-transition: all 0.3s ease-out;
+nav li {
+  display: block;
+  cursor: pointer;
+  vertical-align: middle;
+  font-weight: 300;
+  transition: all 0.3s ease-out;
 }
 
-
-nav #menu li .buttons {
-font-family: 'Courier New', Courier, monospace;
-border: none;
-color: black;
-transition: all 0.1s ease-out;
-font-size:19px;
-vertical-align: middle;
-padding: 5px 25px;
-text-decoration: none;
-font-weight:500;
-border:2px solid white;
-background-color: transparent;
-color:white;
+.buttons {
+  vertical-align: middle;
+  font-family: "Avenir";
+  border: none;
+  cursor: pointer;
+  color: black;
+  transition: all 0.1s ease-out;
+  font-size: 19px;
+  padding: 5px 25px;
+  text-decoration: none;
+  font-weight: 500;
+  border: 2px solid rgba(255, 173, 153);
+  background-color: transparent;
+  color: white;
 }
 
-nav #menu li .buttons:hover {
-
-text-decoration: none;
-background-color: rgba(255, 173, 153);
-color:black;
+.buttons:hover {
+  text-decoration: none;
+  background-color: rgba(255, 173, 153);
+  color: black;
+}
+.rangesSection {
+  display: inline-block;
+}
+.range {
+  z-index: 1;
+  padding: 9px 1px;
+  background: rgba(128, 255, 170);
+  outline: none;
+  vertical-align: middle;
+  transform: rotate(180deg);
+  overflow: hidden;
+  -webkit-appearance: none;
+  box-shadow: 0 0 0 2px white, inset 0 0 20px rgba(255, 173, 153);
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  z-index: 3;
+  height: 18px;
+  border-radius: 10%;
+  background-color: black;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: -410px 100px 100px 400px rgba(255, 173, 153, 0.8);
+}
+.resets {
+  margin-top: 0;
+}
+.reset {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border: 2px solid white;
+  vertical-align: middle;
+  position: relative;
+  background-color: rgba(128, 255, 170);
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.2s ease-out;
+}
+.reset:hover {
+  background: rgba(255, 173, 153);
 }
 
-
-
-
-
-
-
-
-.range{
-
-z-index:1;
-width:160px;
-padding:7px;
-background: rgba(128, 255, 170);
-outline:none;
-vertical-align: middle;
-transform: rotate(180deg);
-overflow: hidden;
--webkit-appearance:none;
-box-shadow: 0 0 0 2px white, inset 0 0 20px rgba(255, 173, 153);
-
-/* transform: rotate(270deg); */
+.width {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border: 2px solid white;
+  vertical-align: middle;
+  position: relative;
+  background-color: rgba(255, 173, 153);
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.2s ease-out;
 }
-.range::-webkit-slider-thumb{
--webkit-appearance:none;
-width:18px;
-z-index:3;
-height:18px;
-border-radius: 50%;
-background-color: black;
-cursor:pointer;
-border:3px  solid white;
-box-shadow:-410px 100px 100px 400px rgba(255, 173, 153, 0.8);
+.speed {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border: 2px solid white;
+  vertical-align: middle;
+  position: relative;
+  background-color: rgba(255, 173, 153);
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.2s ease-out;
 }
 
-.reset{
-width:36px;
-height: 36px;
-border: none;
-border:2px  solid white;
-vertical-align: middle;
-position: relative;
-background-color: rgba(128, 255, 170);
-color:black;
-font-size: 20px;
-font-weight:700;
-transition: all 0.2s ease-out;
+.centerSpeed {
+  right: 450px;
+  position: relative;
 }
-.reset:hover{
-background: rgba(255, 173, 153);
+.hide {
+  display: none;
 }
-.reset .text{
-    color:transparent;
-    position:absolute;
-    text-align: center; 
-    left:50%;
-    margin: auto;
-    white-space: nowrap;
-    top:750px; 
-    font-size:25px;
-    font-weight: normal;
-    font-family: 'Courier New', Courier, monospace;
+.red {
+  background-color: rgba(255, 173, 153);
 }
 
-.reset:hover .text{
-color:white;
+.redReset {
+  background-color: rgba(255, 173, 153);
 }
-.width{
-width:36px;
-height: 36px;
-border: none;
-border:2px  solid white;
-vertical-align: middle;
-position: relative;
-background-color: rgba(255, 173, 153);
-color:black;
-font-size: 20px;
-font-weight:700;
-transition: all 0.2s ease-out;
-}
-.speed{
-
-width:36px;
-height: 36px;
-border: none;
-border:2px  solid white;
-vertical-align: middle;
-position: relative;
-background-color: rgba(255, 173, 153);
-color:black;
-font-size: 20px;
-font-weight:700;
-transition: all 0.2s ease-out;
+.redReset:hover {
+  background: rgba(128, 255, 170);
 }
 
-
-.centerSpeed{
-     right: 450px;
-     position:relative;
-}
-.hide{
-    display:none;
-}
-.red{
-    background-color: rgba(255, 173, 153);
-}
-
-.redReset{
-    background-color: rgba(255, 173, 153);
-}
-.redReset:hover{
-        background: rgba(128, 255, 170);
-}
-    
-
-.redButton{
-    font-family: 'Courier New', Courier, monospace;
-    border: none;
-    color: black;
-    transition: all 0.1s ease-out;
-    font-size:19px;
-    vertical-align: middle;
-    padding: 5px 25px;
-    text-decoration: none;
-    font-weight:500;
-    border:2px solid white;
-    background-color: rgba(255, 173, 153);
-    color:black;
+.redButton {
+  font-family: "Avenir";
+  border: none;
+  color: black;
+  transition: all 0.1s ease-out;
+  font-size: 19px;
+  vertical-align: middle;
+  padding: 5px 25px;
+  text-decoration: none;
+  font-weight: 500;
+  border: 2px solid white;
+  background-color: rgba(255, 173, 153);
+  color: black;
 }
 
-.info{
-    width:36px;
-    height: 36px;
-    border: none;
-    border:2px  solid white;
-    vertical-align: middle;
-    position: relative;
-    background-color: rgba(128, 255, 170);
-    color:black;
-    font-size: 20px;
-    font-weight:700;
-    transition: all 0.2s ease-out;
+.info {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border: 2px solid white;
+  vertical-align: middle;
+  position: relative;
+  background-color: rgba(128, 255, 170);
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.2s ease-out;
 }
 
-
-.close{
-width:36px;
-height: 36px;
-border: none;
-border:2px  solid white;
-vertical-align: middle;
-position: relative;
-background: rgba(255, 173, 153);
-color:black;
-font-size: 20px;
-font-weight:700;
-transition: all 0.2s ease-out;
+.close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border: 2px solid white;
+  vertical-align: middle;
+  position: relative;
+  background: rgba(255, 173, 153);
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.2s ease-out;
 }
-.close:hover{
-    background-color: rgba(128, 255, 170);
+.close:hover {
+  background-color: rgba(128, 255, 170);
 }
 
-.stopwatch{
-    font-family: 'Courier New', Courier, monospace;
-    color:black;
+.stopwatch {
+  font-family: "Avenir";
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  width: 150px;
+  border: none;
+  border: 2px solid white;
+  font-size: 19px;
+  font-weight: normal;
+  transition: all 0.2s ease-out;
+}
+
+.greenStopWatch {
+  background: rgba(128, 255, 170);
+}
+.redStopWatch {
+  background: rgba(255, 173, 153);
+}
+.swIcon {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border: 2px solid white;
+  vertical-align: middle;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.2s ease-out;
+}
+
+@media only screen and (max-width: 1200px) {
+  #defaultCanvas0 {
     position: absolute;
-    bottom:25px;
-    text-align: center;
-    left:110px;
-    width:150px;
-    height: 36px;
-    border: none;
-    border:2px  solid white;
-    vertical-align: middle;
-    font-size: 25px;
-    font-weight: normal;
-    transition: all 0.2s ease-out;     
+    bottom: 25%;
+  }
+  .rangesSection {
+    display: block;
+    margin-top: 5px;
+  }
+  .range {
+    padding: 9px 46px;
+    margin-top: 4px;
+  }
+  .resets {
+    margin-top: 1px;
+  }
 }
-
-.greenStopWatch{
-    background: rgba(128, 255, 170);
+@media only screen and (max-width: 300px) {
+  #defaultCanvas0 {
+    position: absolute;
+    bottom: 25%;
+  }
+  .rangesSection {
+    display: block;
+  }
+  .stopwatch {
+    width: 125px;
+  }
+  .range {
+    padding: 9px 33px;
+  }
 }
-.redStopWatch{
-    background: rgba(255, 173, 153);
-}
-.swIcon{
-    width:36px;
-    height: 36px;
-    border: none;
-    border:2px  solid white;
-    vertical-align: middle;
-    position: relative;
-
-    color:black;
-    font-size: 20px;
-    font-weight:700;
-    transition: all 0.2s ease-out;
-}
-
-
-
-
-
-
-
-
-
