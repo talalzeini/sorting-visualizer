@@ -1,35 +1,34 @@
 body {
   overflow: hidden;
-  background-color: black;
-  font-family: "Avenir", Courier, monospace;
-  color: black;
+  background-color: rgb(110, 197, 255);
+  margin: 0;
+  padding: 0;
 }
 * {
   font-family: "Avenir";
 }
 #defaultCanvas0 {
-  width: 100%;
   z-index: 1;
-  margin: 0px auto;
+  margin: 0 auto;
   display: block;
 }
+.canvasNormalRotation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .canvasRotation {
-  transform: rotateX(180deg);
+  transform: translate(-50%, -50%) rotateX(-180deg);
 }
 .sync {
   transform: rotate(90deg);
 }
 nav {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
   white-space: nowrap;
-  height: 70px;
-  background-color: black;
+  height: 150px;
   margin-bottom: 20px;
-}
-.scroll::-webkit-scrollbar {
-  display: none;
+  width: 100%;
 }
 nav li {
   display: block;
@@ -42,16 +41,18 @@ nav li {
   margin: 0 auto;
 }
 .buttons {
-  color: black;
-  font-size: 19px;
-  padding: 7px 25px;
+  margin-top: 20px;
+  color: #000;
+  font-size: 14px;
+  padding: 5px 15px;
   border: none;
-  background: white;
+  color: #000;
+  background-color: rgba(0, 155, 255, 1);
   border-radius: 5px;
 }
-.sort:hover {
+.buttons:hover {
   cursor: pointer;
-  background: #eee;
+  background-color: rgba(0, 145, 255, 1);
 }
 .sort .rangesSection {
   display: inline-block;
@@ -59,12 +60,11 @@ nav li {
 .range {
   border-radius: 30px;
   border: none;
-  background: black;
+  background: #000;
   outline: none;
   vertical-align: middle;
   overflow: hidden;
   transform: rotate(180deg);
-  -webkit-appearance: none;
 }
 
 .range::-webkit-slider-thumb {
@@ -72,8 +72,8 @@ nav li {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  border: 2px solid black;
-  background-color: white;
+  border: 2px solid #000;
+  background-color: #fff;
   cursor: pointer;
 }
 
@@ -81,21 +81,21 @@ nav li {
   display: block;
 }
 .resets {
-  margin-top: 0;
+  margin-top: 15px;
 }
 .reset {
   text-align: center;
   margin: 0 auto;
   outline: none;
-  padding: 7px 25px;
+  padding: 5px 15px;
   border: none;
   border-radius: 5px;
-  background-color: white;
-  color: black;
-  font-size: 19px;
+  color: #000;
+  background-color: rgba(0, 155, 255, 1);
+  font-size: 14px;
 }
 .reset:hover {
-  background: #eee;
+  background-color: rgba(0, 145, 255, 1);
   cursor: pointer;
 }
 
@@ -103,11 +103,11 @@ nav li {
   width: 36px;
   height: 36px;
   border: none;
-  border: 2px solid white;
+  border: 2px solid #fff;
   vertical-align: middle;
   position: relative;
   background-color: rgba(255, 173, 153);
-  color: black;
+  color: #000;
   font-size: 20px;
   font-weight: 700;
   transition: all 0.2s ease-out;
@@ -116,11 +116,11 @@ nav li {
   width: 36px;
   height: 36px;
   border: none;
-  border: 2px solid white;
+  border: 2px solid #fff;
   vertical-align: middle;
   position: relative;
   background-color: rgba(255, 173, 153);
-  color: black;
+  color: #000;
   font-size: 20px;
   font-weight: 700;
   transition: all 0.2s ease-out;
@@ -137,7 +137,7 @@ nav li {
   background-color: gray;
 }
 .white {
-  background-color: white;
+  background-color: #fff;
 }
 .red {
   background-color: rgba(255, 173, 153);
@@ -150,25 +150,21 @@ nav li {
   background: rgba(128, 255, 170);
 }
 
-.disabledButton {
+.disabledButton,
+.disabledButton:hover {
   cursor: not-allowed;
-  font-size: 19px;
-  padding: 7px 25px;
-  border: none;
-  background: gray;
-  border-radius: 5px;
-  color: black;
+  background-color: gray;
 }
 
 .info {
   width: 36px;
   height: 36px;
   border: none;
-  border: 2px solid white;
+  border: 2px solid #fff;
   vertical-align: middle;
   position: relative;
   background-color: rgba(128, 255, 170);
-  color: black;
+  color: #000;
   font-size: 20px;
   font-weight: 700;
   transition: all 0.2s ease-out;
@@ -178,11 +174,11 @@ nav li {
   width: 36px;
   height: 36px;
   border: none;
-  border: 2px solid white;
+  border: 2px solid #fff;
   vertical-align: middle;
   position: relative;
   background: rgba(255, 173, 153);
-  color: black;
+  color: #000;
   font-size: 20px;
   font-weight: 700;
   transition: all 0.2s ease-out;
@@ -201,15 +197,15 @@ nav li {
   width: 36px;
   height: 36px;
   border: none;
-  border: 2px solid white;
+  border: 2px solid #fff;
   vertical-align: middle;
-  color: black;
+  color: #000;
   font-size: 20px;
   font-weight: 700;
   transition: all 0.2s ease-out;
 }
 
-@media only screen and (max-width: 1200px) {
+/* @media only screen and (max-width: 1200px) {
   #defaultCanvas0 {
     position: absolute;
     bottom: 25%;
@@ -233,4 +229,4 @@ nav li {
   .stopwatch {
     width: 125px;
   }
-}
+} */

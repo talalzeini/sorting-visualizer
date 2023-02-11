@@ -26,75 +26,47 @@
     ></script>
   </head>
   <body>
-    <nav>
-      <li class="button-container">
-        <button class="sort buttons" id="bubbleID" onclick="startBubble()">
-          Bubble Sort
-        </button>
-      </li>
-      <li class="button-container">
-        <button
-          class="sort buttons"
-          id="selectionID"
-          onclick="startSelection()"
-        >
-          Selection Sort
-        </button>
-      </li>
-      <li class="button-container">
-        <button
-          class="sort buttons"
-          id="insertionID"
-          onclick="startInsertion()"
-        >
-          Insertion Sort
-        </button>
-      </li>
-
-      <li class="button-container">
-        <button id="sw" class="buttons stopwatch">00:00:00</button>
-      </li>
-
-      <li class="button-container" style="color: white">
-        <button class="buttons" style="background: white">
-          <i class="fas fa-running"></i>
-          <input
-            id="rangeSpeed"
-            type="range"
-            value="10"
-            class="range"
-            min="10"
-            max="500"
-            onchange="rangeSpeed(this.value)"
-            onmousemove="rangeSpeed(this.value)"
-          />
-        </button>
-      </li>
-
+    <nav style="display: block; margin: 0 auto; text-align: center">
+      <div style="display: block; margin: 0 auto; text-align: center">
+        <li class="button-container">
+          <button class="sort buttons" id="bubbleID" onclick="startBubble()">
+            Bubble
+          </button>
+        </li>
+        <li class="button-container">
+          <button
+            class="sort buttons"
+            id="selectionID"
+            onclick="startSelection()"
+          >
+            Selection
+          </button>
+        </li>
+        <li class="button-container">
+          <button
+            class="sort buttons"
+            id="insertionID"
+            onclick="startInsertion()"
+          >
+            Insertion
+          </button>
+        </li>
+      </div>
       <li class="resets" style="display: inline-block">
         <button id="syncIcon" class="reset" onclick="rotateButton()">
-          <i class="fas fa-sync-alt"></i></button
-        ><button id="syncIcon2" class="reset hide" onclick="rotateBack()">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+        <button id="syncIcon2" class="reset hide" onclick="rotateBack()">
           <i class="fas fa-sync-alt sync"></i>
         </button>
       </li>
+      <li class="button-container">
+        <button id="sw" class="reset stopwatch">00:00:00</button>
+      </li>
+
       <li class="resets" style="display: inline-block">
         <button class="reset" id="resetButton" onclick="setup()">
           <i class="fa fa-undo"></i>
-        </button>
-      </li>
-      <li class="button-container">
-        <button class="buttons white" id="rangeToDisable">
-          <i class="fa fa-signal"></i>
-          <input
-            id="rangeWidth"
-            class="range"
-            type="range"
-            value="10"
-            min="10"
-            max="60"
-            onchange="rangeSlide(this.value)"
-          />
         </button>
       </li>
     </nav>
