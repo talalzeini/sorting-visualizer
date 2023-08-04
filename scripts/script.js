@@ -3,7 +3,8 @@ const speed = 10;
 const bubble = document.getElementById("bubbleID");
 const selection = document.getElementById("selectionID");
 const insertion = document.getElementById("insertionID");
-const backgroundColorString = "rgb(110, 197, 255)";
+const backgroundColorString = "#6ec5ff";
+
 let values = [];
 let states = [];
 
@@ -21,7 +22,6 @@ function setup() {
     .classList.add("canvasNormalRotation");
   colorMode(HSB, height);
   values = new Array(floor(width / w) + 1);
-  console.log(values);
   for (let i = 0; i < values.length; i++) {
     value = float(random(height) + 20);
     while (value > height) {

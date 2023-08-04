@@ -1,7 +1,6 @@
 const rangeWidth = document.getElementById("rangeWidth");
 const resetButton = document.getElementById("resetButton");
 const rangeToDisable = document.getElementById("rangeToDisable");
-syncIcon2;
 
 function rangeSpeed(fast) {
   speed = fast;
@@ -26,6 +25,8 @@ function sleep(speed) {
 function enable() {
   var buttons = document.getElementsByClassName("buttons");
   var resetButtons = document.getElementsByClassName("reset");
+  document.getElementById("sw").classList.remove("reset");
+  document.getElementById("sw").classList.remove("disabledButton");
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].disabled = false;
     buttons[i].classList.remove("disabledButton");
@@ -41,6 +42,8 @@ function enable() {
 function disable() {
   var buttons = document.getElementsByClassName("buttons");
   var resetButtons = document.getElementsByClassName("reset");
+  document.getElementById("sw").classList.add("reset");
+  document.getElementById("sw").classList.add("disabledButton");
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].disabled = true;
     buttons[i].classList.add("disabledButton");
