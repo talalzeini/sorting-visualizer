@@ -1,95 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Sorting Visualizer</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="style.css" type="text/css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-    <script src="./scripts/script.js" defer></script>
-    <script src="./scripts/stopwatch.js" defer></script>
-    <script src="./scripts/sort.js" defer></script>
-    <script src="./scripts/helpers.js" defer></script>
-    <script src="./scripts/screen.js" defer></script>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li class="button-container">
-          <button class="sort buttons" id="bubbleID" onclick="startBubble()">
-            Bubble
-          </button>
-        </li>
-        <li class="button-container">
-          <button
-            class="sort buttons"
-            id="selectionID"
-            onclick="startSelection()"
-          >
-            Selection
-          </button>
-        </li>
-        <li class="button-container">
-          <button
-            class="sort buttons"
-            id="insertionID"
-            onclick="startInsertion()"
-          >
-            Insertion
-          </button>
-        </li>
-      </ul>
-      <ul>
-        <li class="resets">
-          <button
-            id="syncIcon"
-            class="reset"
-            onclick="rotateButton()"
-            aria-label="rotate"
-          >
-            <i class="fas fa-sync-alt"></i>
-          </button>
-          <button
-            id="syncIcon2"
-            class="reset hide"
-            onclick="rotateBack()"
-            aria-label="reset"
-          >
-            <i class="fas fa-sync-alt sync"></i>
-          </button>
-        </li>
-        <li class="button-container">
-          <button id="sw" class="stopwatch" aria-label="stopwatch">
-            00:00:00
-          </button>
-        </li>
 
-        <li class="resets">
-          <button
-            class="reset"
-            id="resetButton"
-            onclick="setup()"
-            aria-label="undo"
-          >
-            <i class="fa fa-undo"></i>
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </body>
+<head>
+  <!-- Meta tags -->
+  <meta charset="UTF-8">
+  <meta name="description"
+    content="A sorting visualizer application for demonstrating bubble, selection, and insertion sorting algorithms.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title -->
+  <title>Sorting Visualizer</title>
+
+  <!-- Stylesheets -->
+  <link href="styles.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js" defer></script>
+  <script src="./scripts/sorting/bubble.js" defer></script>
+  <script src="./scripts/sorting/insertion.js" defer></script>
+  <script src="./scripts/sorting/selection.js" defer></script>
+  <script src="./scripts/buttons.js" defer></script>
+  <script src="./scripts/helpers.js" defer></script>
+  <script src="./scripts/screen.js" defer></script>
+  <script src="./scripts/script.js" defer></script>
+  <script src="./scripts/stopwatch.js" defer></script>
+</head>
+
+<body>
+  <nav>
+    <!-- Sorting button -->
+    <ul>
+      <li>
+        <button id="bubbleSort" onclick="startBubble()" aria-label="Bubble Sort">
+          Bubble
+        </button>
+      </li>
+      <li>
+        <button id="selectionSort" onclick="startSelection()" aria-label="Selection Sort">
+          Selection
+        </button>
+      </li>
+      <li class="button-container">
+        <button id="insertionSort" onclick="startInsertion()" aria-label="Insertion Sort">
+          Insertion
+        </button>
+      </li>
+    </ul>
+
+    <!-- Rotate and reset buttons, along with stopwatch display -->
+    <ul>
+      <li>
+        <button id="rotateButton" onclick="toggleRotationButtonAndIcon()" aria-label="Rotate Button">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+      </li>
+      <li>
+        <span id="stopwatch" aria-label="Stopwatch">
+          00:00:00
+        </span>
+      </li>
+      <li>
+        <button id="resetButton" onclick="setup()" aria-label="Undo">
+          <i class="fa fa-undo"></i>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <footer>
+    <a href="mailto:talalzeini@icloud.com">Contact</a>
+    <a href="https://talalzeini.com" target="_blank" rel="noopener">Portfolio</a>
+    <p>&copy; 2024 Talal El Zeini</p>
+  </footer>
+</body>
+
 </html>

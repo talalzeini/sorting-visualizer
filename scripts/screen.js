@@ -1,35 +1,29 @@
+/**
+ * Reloads the page when the window is resized.
+ * This is to ensure the layout adapts to the new window size.
+ */
 window.onresize = function () {
   location.reload();
 };
-//
-//
-//
-//
-//
-//
-//
-//
-// display width size function starts here
-// display width size function starts here
+
+/**
+ * Sets the width of the element with ID 'defaultCanvas0' and returns the new width.
+ *
+ * @param {string} width
+ * @returns {string}
+ */
 function displayWidthSize(width) {
   document.getElementById("defaultCanvas0").style.width = width;
   return width;
 }
-// display width size function ends here
-// display width size function ends here
-//
-//
-//
-//
-//
-//
-//
-//
-// display height size function starts here
-// display height size function starts here
+
+/**
+ * Sets the height of the element with ID 'defaultCanvas0' and returns the new height.
+ *
+ * @param {string} height
+ * @returns {string}
+ */
 function displayHeightSize(height) {
   document.getElementById("defaultCanvas0").style.height = height;
   return height;
 }
-// display height size function ends here
-// display height size function ends here

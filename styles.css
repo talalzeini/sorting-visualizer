@@ -1,18 +1,20 @@
 :root {
   --bg-color: #6ec5ff;
   --primary-blue: #009bff;
-  --font-color: #000;
   --hover-blue: #0099ffdd;
   --disabled-button-bg: #808080;
+  --font-color: #000;
+  --font-size: 16px;
 }
 body {
   overflow: hidden;
   background-color: var(--bg-color);
-  margin: 0;
-  padding: 0;
 }
 * {
   font-family: "Avenir";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 #defaultCanvas0 {
   z-index: 1;
@@ -28,65 +30,38 @@ body {
 .canvasRotation {
   transform: translate(-50%, -50%) rotateX(-180deg);
 }
-.sync {
-  transform: rotate(90deg);
-}
 nav {
   display: block;
   margin: 0 auto;
   text-align: center;
   white-space: nowrap;
-  margin-bottom: 20px;
   width: 100%;
 }
 nav ul {
   padding: 0;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   text-align: center;
 }
 nav ul li {
   list-style-type: none;
   display: inline-block;
   cursor: pointer;
+  margin: 0 auto;
   transition: all 0.3s ease-out;
 }
-.button-container {
-  display: inline-block;
+button, span {
   margin: 0 auto;
-}
-.buttons {
-  margin-top: 20px;
   color: var(--font-color);
-  font-size: 14px;
+  font-size: var(--font-size);
   padding: 5px 15px;
   border: none;
   background-color: var(--primary-blue);
   border-radius: 5px;
 }
-.buttons:hover {
+button:hover {
   cursor: pointer;
   background-color: var(--hover-blue);
-}
-.resets {
-  display: inline-block;
-  margin-top: 15px;
-}
-.reset,
-.stopwatch {
-  text-align: center;
-  margin: 0 auto;
-  outline: none;
-  padding: 5px 15px;
-  border: none;
-  border-radius: 5px;
-  color: var(--font-color);
-  background-color: var(--primary-blue);
-  font-size: 14px;
-}
-.reset:hover {
-  background-color: var(--hover-blue);
-  cursor: pointer;
 }
 .hide {
   display: none;
@@ -95,4 +70,25 @@ nav ul li {
 .disabledButton:hover {
   cursor: not-allowed;
   background-color: var(--disabled-button-bg);
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--bg-color);
+  text-align: center;
+  padding: 10px 0;
+  color: var(--font-color);
+  font-size: var(--font-size);
+}
+footer a {
+  margin: 0 10px;
+  color:var(--font-color);
+  text-decoration:none
+}
+footer a:hover{
+  text-decoration: underline;
+}
+footer p {
+  margin: 10px auto;
 }

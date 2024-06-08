@@ -1,13 +1,20 @@
 const w = 10;
 const speed = 10;
-const bubble = document.getElementById("bubbleID");
-const selection = document.getElementById("selectionID");
-const insertion = document.getElementById("insertionID");
-const backgroundColorString = "#6ec5ff";
+
+const bubble = document.getElementById("bubbleSort");
+const selection = document.getElementById("selectionSort");
+const insertion = document.getElementById("insertionSort");
+
+const backgroundColor = "#6ec5ff";
 
 let values = [];
 let states = [];
 
+/**
+ * Sets up the visualization canvas and initializes the values array.
+ * 
+ * @returns {void}
+ */
 function setup() {
   stopWatch();
   createCanvas(
@@ -29,11 +36,16 @@ function setup() {
     }
     values[i] = value;
   }
-  enable();
+  enableButtons();
 }
 
+/**
+ * Draws the visualization on the canvas.
+ * 
+ * @returns {void}
+ */
 function draw() {
-  background(backgroundColorString);
+  background(backgroundColor);
   for (let i = 0; i < values.length - 1; i++) {
     let bar = color(values[i], height, height);
     stroke(0, 0, 0);

@@ -1,69 +1,24 @@
-const rangeWidth = document.getElementById("rangeWidth");
-const resetButton = document.getElementById("resetButton");
-const rangeToDisable = document.getElementById("rangeToDisable");
-
-function rangeSpeed(fast) {
-  speed = fast;
-}
-
-function rangeSlide(value) {
-  w = value;
-  setup();
-}
-
+/**
+ * Asynchronously swaps two elements in an array after a specified delay.
+ *
+ * @param {Array} arr - The array in which to swap elements.
+ * @param {number} a - The index of the first element to swap.
+ * @param {number} b - The index of the second element to swap.
+ * @returns {Promise<void>} A promise that resolves after the swap is complete.
+ */
 async function swap(arr, a, b) {
   await sleep(speed);
-  let t = arr[a];
+  let temp = arr[a];
   arr[a] = arr[b];
-  arr[b] = t;
+  arr[b] = temp;
 }
 
-function sleep(speed) {
-  return new Promise((resolve) => setTimeout(resolve, speed));
-}
-
-function enable() {
-  var buttons = document.getElementsByClassName("buttons");
-  var resetButtons = document.getElementsByClassName("reset");
-  document.getElementById("sw").classList.remove("reset");
-  document.getElementById("sw").classList.remove("disabledButton");
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].disabled = false;
-    buttons[i].classList.remove("disabledButton");
-    buttons[i].classList.add("sort");
-  }
-  for (var i = 0; i < resetButtons.length; i++) {
-    resetButtons[i].disabled = false;
-    resetButtons[i].classList.remove("disabledButton");
-    resetButtons[i].classList.add("sort");
-  }
-}
-
-function disable() {
-  var buttons = document.getElementsByClassName("buttons");
-  var resetButtons = document.getElementsByClassName("reset");
-  document.getElementById("sw").classList.add("reset");
-  document.getElementById("sw").classList.add("disabledButton");
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].disabled = true;
-    buttons[i].classList.add("disabledButton");
-    buttons[i].classList.remove("sort");
-  }
-  for (var i = 0; i < resetButtons.length; i++) {
-    resetButtons[i].disabled = true;
-    resetButtons[i].classList.add("disabledButton");
-    resetButtons[i].classList.remove("sort");
-  }
-}
-
-function rotateButton() {
-  document.getElementById("defaultCanvas0").classList.add("canvasRotation");
-  document.getElementById("syncIcon").classList.add("hide");
-  document.getElementById("syncIcon2").classList.remove("hide");
-}
-
-function rotateBack() {
-  document.getElementById("defaultCanvas0").classList.remove("canvasRotation");
-  document.getElementById("syncIcon2").classList.add("hide");
-  document.getElementById("syncIcon").classList.remove("hide");
+/**
+ * Asynchronously pauses execution for a specified duration.
+ *
+ * @param {number} duration - The duration in milliseconds to pause execution.
+ * @returns {Promise<void>} A promise that resolves after the specified duration.
+ */
+function sleep(duration) {
+  return new Promise((resolve) => setTimeout(resolve, duration));
 }
