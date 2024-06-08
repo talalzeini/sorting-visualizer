@@ -20,7 +20,7 @@ To use the Sorting Visualizer, you have two options:
    - Simply visit the [link](https://talalzeini.github.io/sorting-visualizer/) in your web browser.
   
 2. **Clone the Repository:**
-   - Clone this repository to your local machine by clicking this [link](https://github.com/talalzeini/sorting-visualizer/archive/master.zip)
+   - Clone this repository to your local machine by clicking this [link](https://github.com/talalzeini/sorting-visualizer/archive/master.zip).
    - Open the project folder in your preferred code editor.
    - Launch the `index.html` file in a web browser.
 
