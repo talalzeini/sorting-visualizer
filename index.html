@@ -29,41 +29,36 @@
 </head>
 
 <body>
-  <nav>
-    <!-- Rotate and reset buttons with stopwatch display, followed by the algorithm selector and run button (which wrap below on small screens) -->
-    <ul>
-      <li class="control">
-        <button id="rotateButton" onclick="toggleRotationButtonAndIcon()" aria-label="Rotate Button">
-          <i class="fas fa-sync-alt"></i>
-        </button>
-      </li>
-      <li class="control">
-        <span id="stopwatch" aria-label="Stopwatch">
-          00:00:00
-        </span>
-      </li>
-      <li class="control">
-        <button id="resetButton" onclick="setup()" aria-label="Undo">
-          <i class="fa fa-undo"></i>
-        </button>
-      </li>
-      <li>
-        <div class="dropdown" id="algorithmDropdown">
-          <button id="algorithmButton" onclick="toggleAlgorithmMenu()" aria-label="Sorting algorithm" aria-haspopup="listbox" aria-expanded="false">Bubble</button>
-          <ul class="dropdown-menu" id="algorithmMenu" role="listbox" aria-label="Sorting algorithm" hidden>
-            <li role="option" tabindex="-1" data-algorithm="bubble" aria-selected="true" onclick="chooseAlgorithm(this)">Bubble</li>
-            <li role="option" tabindex="-1" data-algorithm="selection" aria-selected="false" onclick="chooseAlgorithm(this)">Selection</li>
-            <li role="option" tabindex="-1" data-algorithm="insertion" aria-selected="false" onclick="chooseAlgorithm(this)">Insertion</li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <button id="runButton" onclick="runSelectedAlgorithm()" aria-label="Run">
-          <i class="fas fa-play"></i> Run
-        </button>
-      </li>
-    </ul>
-  </nav>
+  <header class="navbar">
+    <!-- Rotate and reset buttons with stopwatch display on the left, the algorithm selector and run button on the right (stacked on small screens) -->
+    <div class="navbar-group">
+      <button id="rotateButton" onclick="toggleRotationButtonAndIcon()" aria-label="Rotate Button">
+        <i class="fas fa-sync-alt"></i>
+      </button>
+      <span id="stopwatch" aria-label="Stopwatch">
+        00:00:00
+      </span>
+      <button id="resetButton" onclick="setup()" aria-label="Undo">
+        <i class="fa fa-undo"></i>
+      </button>
+    </div>
+    <a class="navbar-brand" href="./" aria-label="Sorting Algorithms Visualizer home">
+      Sorting Algorithms Visualizer
+    </a>
+    <div class="navbar-group">
+      <div class="dropdown" id="algorithmDropdown">
+        <button id="algorithmButton" onclick="toggleAlgorithmMenu()" aria-label="Sorting algorithm" aria-haspopup="listbox" aria-expanded="false">Bubble</button>
+        <ul class="dropdown-menu" id="algorithmMenu" role="listbox" aria-label="Sorting algorithm" hidden>
+          <li role="option" tabindex="-1" data-algorithm="bubble" aria-selected="true" onclick="chooseAlgorithm(this)">Bubble</li>
+          <li role="option" tabindex="-1" data-algorithm="selection" aria-selected="false" onclick="chooseAlgorithm(this)">Selection</li>
+          <li role="option" tabindex="-1" data-algorithm="insertion" aria-selected="false" onclick="chooseAlgorithm(this)">Insertion</li>
+        </ul>
+      </div>
+      <button id="runButton" onclick="runSelectedAlgorithm()" aria-label="Run">
+        <i class="fas fa-play"></i> Run
+      </button>
+    </div>
+  </header>
   <footer>
     <a href="mailto:talalzeini@icloud.com">Contact</a>
     <a href="https://talalzeini.com" target="_blank" rel="noopener">Portfolio</a>
