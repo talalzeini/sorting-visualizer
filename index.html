@@ -71,7 +71,8 @@
   <footer>
     <a href="mailto:talalzeini@icloud.com">Contact</a>
     <a href="https://talalzeini.com" target="_blank" rel="noopener">Portfolio</a>
-    <p>&copy; 2024 Talal El Zeini</p>
+    <p id="copyright"></p>
+    <script>document.getElementById("copyright").textContent = `© ${new Date().getFullYear()} Talal El Zeini`;</script>
   </footer>
 </body>
 
