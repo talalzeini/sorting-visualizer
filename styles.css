@@ -1,8 +1,8 @@
 :root {
-  --bg-color: #6ec5ff;
-  --primary-blue: #009bff;
-  --hover-blue: #0099ffdd;
-  --disabled-button-bg: #808080;
+  --bg-color: #f8fafc;
+  --accent-color: #000;
+  --hover-color: #0000000d;
+  --disabled-color: #9ca3af;
   --font-color: #000;
   --font-size: 16px;
 }
@@ -50,18 +50,30 @@ nav ul li {
   margin: 0 auto;
   transition: all 0.3s ease-out;
 }
-button, span {
+button {
   margin: 0 auto;
-  color: var(--font-color);
+  color: var(--accent-color);
   font-size: var(--font-size);
   padding: 5px 15px;
-  border: none;
-  background-color: var(--primary-blue);
+  border: 1px solid var(--accent-color);
+  background-color: transparent;
   border-radius: 5px;
 }
 button:hover {
   cursor: pointer;
-  background-color: var(--hover-blue);
+  background-color: var(--hover-color);
+}
+#stopwatch {
+  margin: 0 auto;
+  padding: 5px 15px;
+  color: var(--font-color);
+  font-size: var(--font-size);
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  cursor: default;
+  user-select: none;
 }
 .hide {
   display: none;
@@ -69,7 +81,9 @@ button:hover {
 .disabledButton,
 .disabledButton:hover {
   cursor: not-allowed;
-  background-color: var(--disabled-button-bg);
+  color: var(--disabled-color);
+  border-color: var(--disabled-color);
+  background-color: transparent;
 }
 footer {
   position: fixed;

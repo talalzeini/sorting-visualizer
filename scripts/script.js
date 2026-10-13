@@ -5,7 +5,7 @@ const bubble = document.getElementById("bubbleSort");
 const selection = document.getElementById("selectionSort");
 const insertion = document.getElementById("insertionSort");
 
-const backgroundColor = "#6ec5ff";
+const backgroundColor = "#f8fafc";
 
 let values = [];
 let states = [];
