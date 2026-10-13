@@ -30,40 +30,36 @@
 
 <body>
   <nav>
-    <!-- Sorting button -->
+    <!-- Rotate and reset buttons with stopwatch display, followed by the algorithm selector and run button (which wrap below on small screens) -->
     <ul>
-      <li>
-        <button id="bubbleSort" onclick="startBubble()" aria-label="Bubble Sort">
-          Bubble
-        </button>
-      </li>
-      <li>
-        <button id="selectionSort" onclick="startSelection()" aria-label="Selection Sort">
-          Selection
-        </button>
-      </li>
-      <li class="button-container">
-        <button id="insertionSort" onclick="startInsertion()" aria-label="Insertion Sort">
-          Insertion
-        </button>
-      </li>
-    </ul>
-
-    <!-- Rotate and reset buttons, along with stopwatch display -->
-    <ul>
-      <li>
+      <li class="control">
         <button id="rotateButton" onclick="toggleRotationButtonAndIcon()" aria-label="Rotate Button">
           <i class="fas fa-sync-alt"></i>
         </button>
       </li>
-      <li>
+      <li class="control">
         <span id="stopwatch" aria-label="Stopwatch">
           00:00:00
         </span>
       </li>
-      <li>
+      <li class="control">
         <button id="resetButton" onclick="setup()" aria-label="Undo">
           <i class="fa fa-undo"></i>
+        </button>
+      </li>
+      <li>
+        <div class="dropdown" id="algorithmDropdown">
+          <button id="algorithmButton" onclick="toggleAlgorithmMenu()" aria-label="Sorting algorithm" aria-haspopup="listbox" aria-expanded="false">Bubble</button>
+          <ul class="dropdown-menu" id="algorithmMenu" role="listbox" aria-label="Sorting algorithm" hidden>
+            <li role="option" tabindex="-1" data-algorithm="bubble" aria-selected="true" onclick="chooseAlgorithm(this)">Bubble</li>
+            <li role="option" tabindex="-1" data-algorithm="selection" aria-selected="false" onclick="chooseAlgorithm(this)">Selection</li>
+            <li role="option" tabindex="-1" data-algorithm="insertion" aria-selected="false" onclick="chooseAlgorithm(this)">Insertion</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <button id="runButton" onclick="runSelectedAlgorithm()" aria-label="Run">
+          <i class="fas fa-play"></i> Run
         </button>
       </li>
     </ul>

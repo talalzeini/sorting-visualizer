@@ -63,6 +63,60 @@ button:hover {
   cursor: pointer;
   background-color: var(--hover-color);
 }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+#algorithmButton {
+  position: relative;
+  padding-right: 35px;
+}
+#algorithmButton::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 10px;
+  height: 6px;
+  margin-top: -3px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat;
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease-out;
+}
+#algorithmButton[aria-expanded="true"]::after {
+  transform: rotate(0deg);
+}
+nav ul.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 2;
+  min-width: 100%;
+  margin: 0;
+  padding: 4px 0;
+  text-align: left;
+  background-color: var(--bg-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+}
+nav ul.dropdown-menu[hidden] {
+  display: none;
+}
+nav .dropdown-menu li {
+  display: block;
+  padding: 5px 15px;
+  color: var(--accent-color);
+  font-size: var(--font-size);
+  outline: none;
+}
+nav .dropdown-menu li:hover,
+nav .dropdown-menu li:focus {
+  background-color: var(--hover-color);
+}
+nav .dropdown-menu li[aria-selected="true"] {
+  color: var(--bg-color);
+  background-color: var(--accent-color);
+}
 #stopwatch {
   margin: 0 auto;
   padding: 5px 15px;
@@ -85,6 +139,9 @@ button:hover {
   border-color: var(--disabled-color);
   background-color: transparent;
 }
+#algorithmButton.disabledButton::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239ca3af' stroke-width='1.5'/%3E%3C/svg%3E");
+}
 footer {
   position: fixed;
   bottom: 0;
@@ -105,4 +162,24 @@ footer a:hover{
 }
 footer p {
   margin: 10px auto;
+}
+@media (max-width: 600px) {
+  nav > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 4px;
+    row-gap: 10px;
+  }
+  nav > ul::after {
+    content: "";
+    flex-basis: 100%;
+    order: 1;
+  }
+  nav > ul > li {
+    margin: 0;
+  }
+  nav > ul > li:not(.control) {
+    order: 2;
+  }
 }

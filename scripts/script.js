@@ -1,10 +1,6 @@
 const w = 10;
 const speed = 10;
 
-const bubble = document.getElementById("bubbleSort");
-const selection = document.getElementById("selectionSort");
-const insertion = document.getElementById("insertionSort");
-
 const backgroundColor = "#f8fafc";
 
 let values = [];
