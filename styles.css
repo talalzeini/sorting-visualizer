@@ -177,10 +177,19 @@ footer p {
 }
 @media (max-width: 600px) {
   .navbar {
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    height: auto;
-    padding: 10px 16px;
+    padding: 0 16px;
+  }
+  .navbar-group {
+    gap: 6px;
+  }
+  button,
+  #stopwatch {
+    padding: 5px 10px;
+  }
+  #algorithmButton {
+    padding-right: 28px;
+  }
+  #algorithmButton::after {
+    right: 10px;
   }
 }
